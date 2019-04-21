@@ -15,11 +15,15 @@ n = 1
 
 
 class SchrödingerEquation:
+	"""
+	Class implementing a numerical split-step solution of the time-dependent
+	Schrodinger equation for an arbitrary potential with arbitrary initial
+	function
+	"""
 	def __init__(self, 
 				 grid: Grid2D_TX, 
-				 potential = None,
-				 init_func = None):
-		# print(type(init_func))
+				 potential: np.ndarray = None,
+				 init_func: function = None):
 		self.grid = grid
 		self.potential = potential 
 		self.init_func = init_func
@@ -31,7 +35,7 @@ class SchrödingerEquation:
 		# initialize precise solution
 		self._set_precise_solution()
 
-	def _set_precise_solution(self):
+	def _set_precise_solution(self) -> None:
 		self.prec_sol = np.zeros((len(self.T), len(self.X)), dtype = complex)
 		self.phase = np.zeros((len(self.T), len(self.X)), dtype = complex)
 		E_n = n + 0.5
