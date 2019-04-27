@@ -1,3 +1,7 @@
+# check version
+import sys
+assert sys.version_info >= (3, 7)
+
 # pre-installed libs
 import math as m
 from math import factorial as fact
@@ -9,7 +13,6 @@ import numpy as np
 from plotter import draw
 from grid import Grid2D_TX
 from Schrödinger import SchrödingerEquation
-		
 
 def V(x): return np.power(x, 2)/2
 
